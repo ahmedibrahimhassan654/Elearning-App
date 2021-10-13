@@ -19,9 +19,9 @@ const register = () => {
         email,
         password,
       });
-      toast(`user with email ${email} is registered, please login `);
+      toast.success(`user with email ${email} is registered, please login `);
     } catch (err) {
-      toast(err.response.data);
+      toast.error()
     }
   };
   return (

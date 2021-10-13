@@ -13,16 +13,11 @@ const register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     // console.table({ name, email, password });
-    try {
-      const { data } = await axios.post("http://localhost:8000/api/register", {
-        name,
-        email,
-        password,
-      });
-      toast(`user with email ${email} is registered, please login `);
-    } catch (err) {
-      toast(err.response.data);
-    }
+try {
+  
+} catch (err) {
+  
+}
   };
   return (
     <>
