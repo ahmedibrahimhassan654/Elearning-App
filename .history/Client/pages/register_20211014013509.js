@@ -14,17 +14,15 @@ const register = () => {
     e.preventDefault();
     // console.table({ name, email, password });
     try {
-      setLoading(true);
+      
       const { data } = await axios.post("http://localhost:8000/api/register", {
         name,
         email,
         password,
       });
       toast(`user with email ${email} is registered, please login `);
-      setLoading(false);
     } catch (err) {
       toast(err.response.data);
-      setLoading(false);
     }
   };
   return (

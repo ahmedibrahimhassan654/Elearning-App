@@ -24,7 +24,6 @@ const register = () => {
       setLoading(false);
     } catch (err) {
       toast(err.response.data);
-      setLoading(false);
     }
   };
   return (
