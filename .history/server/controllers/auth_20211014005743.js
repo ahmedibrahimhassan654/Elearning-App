@@ -1,6 +1,7 @@
 import User from "../models/user";
 import { hashPassword, comparePassword } from "../utils/auth";
 
+
 export const register = async (req, res) => {
   try {
     // console.log(req.body);
@@ -32,3 +33,4 @@ export const register = async (req, res) => {
     return res.status(400).send("Error. Try again.");
   }
 };
+
