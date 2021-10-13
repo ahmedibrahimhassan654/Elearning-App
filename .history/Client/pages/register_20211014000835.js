@@ -13,10 +13,8 @@ const register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     // console.table({ name, email, password });
-    const { data } = await axios.post("http://localhost:8000/api/register",{
-      name,email,password
-    });
-    console.log("from react", data);
+    const { data } = await axios.post("http://localhost:8000/api/register");
+    console.log('from react',dat);
   };
   return (
     <>

@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import axios from "axios";
+//import axios from "axios";
 //import { toast } from "react-toastify";
 import { SyncOutlined } from "@ant-design/icons";
 import Link from "next/link";
@@ -10,13 +10,9 @@ const register = () => {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = asy(e) => {
     e.preventDefault();
-    // console.table({ name, email, password });
-    const { data } = await axios.post("http://localhost:8000/api/register",{
-      name,email,password
-    });
-    console.log("from react", data);
+    console.table({ name, email, password });
   };
   return (
     <>
