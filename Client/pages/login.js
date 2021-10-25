@@ -4,6 +4,7 @@ import axios from "axios";
 
 import { SyncOutlined } from "@ant-design/icons";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { Context } from "../context";
 
 const Login = () => {
@@ -11,7 +12,10 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const { state, dispatch } = useContext(Context);
-  console.log(state);
+
+  //router
+  const router = useRouter();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     // console.table({ name, email, password });
@@ -25,7 +29,10 @@ const Login = () => {
         type: "LOGIN",
         payload: data,
       });
+      // save in local storage
+      window.localStorage.setItem("user", JSON.stringify(data));
       toast(` ${email} is loged in now `);
+      router.push("/");
       setLoading(false);
     } catch (err) {
       toast(err.response.data);
