@@ -15,7 +15,7 @@ const register = () => {
     // console.table({ name, email, password });
     try {
       setLoading(true);
-      const { data } = await axios.post(`api/register`, {
+      const { data } = await axios.post(`/api/register`, {
         name,
         email,
         password,

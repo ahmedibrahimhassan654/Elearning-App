@@ -5,6 +5,7 @@ export const register = async (req, res) => {
   try {
     // console.log(req.body);
     const { name, email, password } = req.body;
+    console.log(req.body);
     // validation
     if (!name) return res.status(400).send("Name is required");
     if (!password || password.length < 6) {
@@ -14,10 +15,8 @@ export const register = async (req, res) => {
     }
     let userExist = await User.findOne({ email }).exec();
     if (userExist) return res.status(400).send("Email is taken");
-
     // hash password
     const hashedPassword = await hashPassword(password);
-
     // register
     const user = new User({
       name,
@@ -27,6 +26,18 @@ export const register = async (req, res) => {
     await user.save();
     // console.log("saved user", user);
     return res.json({ ok: true });
+  } catch (err) {
+    console.log(err);
+    return res.status(400).send("Error. Try again.");
+  }
+};
+
+//login
+export const login = async (req, res) => {
+  try {
+    // console.log(req.body);
+    const { name, email, password } = req.body;
+    console.log(req.body);
   } catch (err) {
     console.log(err);
     return res.status(400).send("Error. Try again.");
