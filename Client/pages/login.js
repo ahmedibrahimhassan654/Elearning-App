@@ -18,7 +18,7 @@ const Login = () => {
         email,
         password,
       });
-      toast(`user with email ${email} is registered, please login `);
+      toast(` ${email} is loged in now `);
       setLoading(false);
     } catch (err) {
       toast(err.response.data);

@@ -5,7 +5,7 @@ export const register = async (req, res) => {
   try {
     // console.log(req.body);
     const { name, email, password } = req.body;
-    console.log(req.body);
+    // console.log(req.body);
     // validation
     if (!name) return res.status(400).send("Name is required");
     if (!password || password.length < 6) {
@@ -43,7 +43,7 @@ export const login = async (req, res) => {
     if (!user) {
       return res.status(400).send("You are not registered in our web site");
     }
-    console.log(user);
+    // console.log(user);
     //check the password
     const mathch = await comparePassword(password, user.password);
     //create signed jwt
