@@ -33,7 +33,14 @@ const Provider = ({ children }) => {
       payload: JSON.parse(window.localStorage.getItem("user")),
     });
   }, []);
-
+  useEffect(() => {
+    const getCsrfToken = async () => {
+      const { data } = await axios.get("/api/csrf-token");
+      // console.log("CSRF", data);
+      axios.defaults.headers["X-CSRF-Token"] = data.getCsrfToken;
+    };
+    getCsrfToken();
+  }, []);
   axios.interceptors.response.use(
     function (response) {
       // any status code that lie within the range of 2XX cause this function
