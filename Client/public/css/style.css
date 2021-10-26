@@ -6,10 +6,14 @@
 }
 
 .square {
-  border-radius: 0px;
+  border-radius: 50px;
+  margin: auto;
+  width: 50%;
+  align-items: center;
+  margin-bottom: 50px;
 }
 
 .jumbotron {
-  background-image: linear-gradient(to right, #23aa8f #008d8c);
-  color: aliceblue;
+  background-image: linear-gradient(to right, hsl(73, 92%, 53%) #dd2f9a);
+  color: whitesmoke;
 }
