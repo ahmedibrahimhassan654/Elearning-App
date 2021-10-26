@@ -10,6 +10,7 @@ import {
   UserOutlined,
   UserAddOutlined,
   SettingOutlined,
+  ProfileOutlined,
 } from "@ant-design/icons";
 import { toast } from "react-toastify";
 
@@ -91,14 +92,27 @@ const TopNav = () => {
               key="SubMenu"
               icon={<Avatar size="large" icon={<UserOutlined />} />}
               title={`welcome ${user.name}`}
+              className="float-right"
             >
-              <Menu.Item
-                onClick={logout}
-                icon={<LogoutOutlined />}
-                className="float-right"
-              >
-                Logout
-              </Menu.Item>
+              <Menu.ItemGroup>
+                <Menu.Item
+                  key="/user"
+                  icon={<ProfileOutlined />}
+                  // className="float-left"
+                >
+                  <Link href="/user">
+                    <a>Dash Board</a>
+                  </Link>
+                </Menu.Item>
+
+                <Menu.Item
+                  onClick={logout}
+                  icon={<LogoutOutlined />}
+                  className="float-left"
+                >
+                  Logout
+                </Menu.Item>
+              </Menu.ItemGroup>
             </Menu.SubMenu>
           </>
         )}
