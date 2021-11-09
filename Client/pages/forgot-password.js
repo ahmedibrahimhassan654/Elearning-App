@@ -7,7 +7,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { Context } from "../context";
 
-const Login = () => {
+const ForgotPassword = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
@@ -25,27 +25,23 @@ const Login = () => {
     // console.table({ name, email, password });
     try {
       setLoading(true);
-      const { data } = await axios.post(`/api/login`, {
-        email,
-        password,
-      });
-      dispatch({
-        type: "LOGIN",
-        payload: data,
-      });
-      // save in local storage
-      window.localStorage.setItem("user", JSON.stringify(data));
-      toast(` ${email} is loged in now `);
-      router.push("/");
+      //   const { data } = await axios.post(`/api/forgot-password`, {
+      //     email,
+      //   });
+
       setLoading(false);
+      toast("check your mail");
     } catch (err) {
-      toast(err.response.data);
       setLoading(false);
+      toast(err.response.data);
     }
   };
+
   return (
     <>
-      <h1 className="jumbotron text-center bg-primary square mt-3">Login</h1>
+      <h1 className="jumbotron text-center bg-primary square mt-3">
+        forget password{" "}
+      </h1>
 
       <div className="container col-md-4 offset-md-4 pb-5">
         <form onSubmit={handleSubmit}>
@@ -54,44 +50,29 @@ const Login = () => {
             className="form-control mb-4 p-4"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            placeholder="Enter email"
+            placeholder="Enter Email"
             required
           />
-
-          <input
+          {/* <input
             type="password"
             className="form-control mb-4 p-4"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            // value={password}
+            // onChange={(e) => setPassword(e.target.value)}
             placeholder="Enter password"
             required
-          />
+          /> */}
 
           <button
             type="submit"
             className="btn btn-block btn-primary"
-            disabled={!email || !password || loading}
+            disabled={!email || loading}
           >
-            {loading ? <SyncOutlined spin /> : "Submit"}
+            {loading ? <SyncOutlined spin /> : "reset your password"}
           </button>
         </form>
-
-        <p className="text-center p-3">
-          Don't Have account yet ?{" "}
-          <Link href="/register">
-            <a>Register</a>
-          </Link>
-        </p>
-
-        <p className="text-center p-3">
-          {" "}
-          <Link href="/forgot-password">
-            <a className="text-danger ">Reset your password ?</a>
-          </Link>
-        </p>
       </div>
     </>
   );
 };
 
-export default Login;
+export default ForgotPassword;

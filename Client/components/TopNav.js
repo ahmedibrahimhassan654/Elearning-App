@@ -53,20 +53,21 @@ const TopNav = () => {
         selectedKeys={[current]}
         mode="horizontal"
       >
-        <Menu.Item
-          key="/"
-          style={{ marginRight: "auto" }}
-          onClick={(e) => setCurrent(e.key)}
-          icon={<HomeOutlined twoToneColor="#eb2f96" />}
-        >
-          <Link href="/">
-            <a>App</a>
-          </Link>
-        </Menu.Item>
         {user === null && (
           <>
             <Menu.Item
+              key="/home"
+              style={{ marginLeft: "auto" }}
+              onClick={(e) => setCurrent(e.key)}
+              icon={<LoginOutlined />}
+            >
+              <Link href="/home">
+                <a>Home</a>
+              </Link>
+            </Menu.Item>
+            <Menu.Item
               key="/login"
+              style={{ marginLeft: "auto" }}
               onClick={(e) => setCurrent(e.key)}
               icon={<LoginOutlined />}
             >
@@ -77,6 +78,7 @@ const TopNav = () => {
 
             <Menu.Item
               key="/register"
+              style={{ marginLeft: "auto" }}
               onClick={(e) => setCurrent(e.key)}
               icon={<UserAddOutlined />}
             >
@@ -88,6 +90,17 @@ const TopNav = () => {
         )}
         {user !== null && (
           <>
+            <Menu.Item
+              key="/"
+              style={{ marginLeft: "auto" }}
+              onClick={(e) => setCurrent(e.key)}
+              icon={<HomeOutlined twoToneColor="#eb2f96" />}
+            >
+              <Link href="/">
+                <a>App</a>
+              </Link>
+            </Menu.Item>
+
             <Menu.SubMenu
               key="SubMenu"
               icon={<Avatar size="large" icon={<UserOutlined />} />}
