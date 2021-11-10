@@ -11,7 +11,9 @@ const ForgotPassword = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
+  const [succcess, setsucccess] = useState(false);
   const { state, dispatch } = useContext(Context);
+
   const { user } = state;
   //router
   const router = useRouter();
@@ -22,15 +24,17 @@ const ForgotPassword = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
     // console.table({ name, email, password });
     try {
-      setLoading(true);
-      //   const { data } = await axios.post(`/api/forgot-password`, {
-      //     email,
-      //   });
+    
+        const { data } = await axios.post(`/api/forgot-password`, {
+          email,
+        });
+      setsucccess(true)
 
       setLoading(false);
-      toast("check your mail");
+      toast("check your mail for secret code ");
     } catch (err) {
       setLoading(false);
       toast(err.response.data);
