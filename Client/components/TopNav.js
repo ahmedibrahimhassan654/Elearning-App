@@ -57,7 +57,7 @@ const TopNav = () => {
           <>
             <Menu.Item
               key="/home"
-              style={{ marginLeft: "auto" }}
+              style={{ marginLeft: "1px" }}
               onClick={(e) => setCurrent(e.key)}
               icon={<LoginOutlined />}
             >
@@ -67,7 +67,7 @@ const TopNav = () => {
             </Menu.Item>
             <Menu.Item
               key="/login"
-              style={{ marginLeft: "auto" }}
+              style={{ marginRight: "auto" }}
               onClick={(e) => setCurrent(e.key)}
               icon={<LoginOutlined />}
             >

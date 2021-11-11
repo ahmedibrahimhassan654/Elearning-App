@@ -36,7 +36,7 @@ const Login = () => {
       // save in local storage
       window.localStorage.setItem("user", JSON.stringify(data));
       toast(` ${email} is loged in now `);
-      router.push("/");
+      router.push("/user");
       setLoading(false);
     } catch (err) {
       toast(err.response.data);
