@@ -9,13 +9,7 @@ const UserIndex = () => {
     state: { user },
   } = useContext(Context);
 
-  return (
-    <UserRoute>
-      <h1 className="jumbotron  text-center square text-primary">
-        User Dashboard
-      </h1>
-    </UserRoute>
-  );
+  return <UserRoute></UserRoute>;
 };
 
 export default UserIndex;

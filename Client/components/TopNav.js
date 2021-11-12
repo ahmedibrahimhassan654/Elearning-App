@@ -50,6 +50,7 @@ const TopNav = () => {
     <>
       <Menu
         //onClick={this.handleClick}
+     className='navbar'
         selectedKeys={[current]}
         mode="horizontal"
       >
