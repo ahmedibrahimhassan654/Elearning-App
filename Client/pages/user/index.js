@@ -9,7 +9,11 @@ const UserIndex = () => {
     state: { user },
   } = useContext(Context);
 
-  return <UserRoute></UserRoute>;
+  return (
+    <UserRoute>
+     
+    </UserRoute>
+  );
 };
 
 export default UserIndex;
