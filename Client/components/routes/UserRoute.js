@@ -26,10 +26,10 @@ const UserRoute = ({ children }) => {
     fetchUser();
   }, []);
 
-  const onCollapse = (collapsed) => {
-    console.log(collapsed);
-    setcollapsed({ collapsed });
-  };
+  // const onCollapse = (collapsed) => {
+  //   console.log(collapsed);
+  //   setcollapsed({ collapsed });
+  // };
   const fetchUser = async () => {
     try {
       const { data } = await axios.get("/api/current-user");
@@ -59,18 +59,14 @@ const UserRoute = ({ children }) => {
         //   </div>
         // </div>
 
-        <Layout style={{ minHeight: "100vh" }}>
-          <UserNav collapsed={collapsed}/>
+        <Layout style={{ minHeight: "100vh", position: "relative" }}>
+          <UserNav collapsed={collapsed} />
           <Layout className="site-layout" style={{ marginLeft: 200 }}>
-            <Header
-              className="site-layout-background"
-              style={{ padding: 0, marginTop: 0 }}
-            />
             <Content style={{ padding: 24, textAlign: "center" }}>
               <p className="text-primary">USer Dash Board</p>
               <div
                 className="site-layout-background"
-                style={{ padding: 24, minHeight: 360 }}
+                //  style={{ padding: 24, minHeight: 360 }}
               >
                 <div>{children}</div>
               </div>

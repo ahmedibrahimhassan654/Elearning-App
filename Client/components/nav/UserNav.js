@@ -15,18 +15,27 @@ const UserNav = ({ collapsed }) => {
       style={{
         overflow: "auto",
         height: "100vh",
-        position: "fixed",
+
         position: "sticky",
+        backgroundColor: "red",
         top: 0,
       }}
       collapsible
       isCollapsed={collapsed}
       onToggle={(isCollapsed) => setcollapsed(isCollapsed)}
     >
-      <div className="logo">
-        <h1>logo</h1>
-      </div>
-      <Menu theme="dark" defaultSelectedKeys={["1"]} mode="inline">
+      <Menu
+        style={{
+          overflow: "auto",
+          height: "100vh",
+          position: "fixed",
+          position: "sticky",
+          backgroundColor: "#BBBBBB",
+          top: 0,
+        }}
+        defaultSelectedKeys={["1"]}
+        mode="inline"
+      >
         <Menu.Item key="1" icon={<PieChartOutlined />}>
           Option 1
         </Menu.Item>
