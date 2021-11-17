@@ -13,7 +13,7 @@
 }
 
 .jumbotron {
-  background-image: linear-gradient(to right, hsl(73, 92%, 53%) #dd2f9a);
+  background-color: rgba(194, 35, 181, 0.705);;
   color: whitesmoke;
 }
 
@@ -37,13 +37,13 @@
   align-items: center;
 }
 .navbar {
-  color: #f2f2f2;
+  color: #ffffff;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
   font-size: 17px;
   overflow: hidden;
-  background-color: rgba(51, 51, 51, 0.335);
+  background-color: rgba(194, 35, 181, 0.705);
   position: sticky;
   top: 0;
   color: white;

@@ -17,7 +17,7 @@ const UserNav = ({ collapsed }) => {
         height: "100vh",
 
         position: "sticky",
-        backgroundColor: "red",
+
         top: 0,
       }}
       collapsible
@@ -30,7 +30,7 @@ const UserNav = ({ collapsed }) => {
           height: "100vh",
           position: "fixed",
           position: "sticky",
-          backgroundColor: "#BBBBBB",
+          backgroundColor: "#D464CB",
           top: 0,
         }}
         defaultSelectedKeys={["1"]}

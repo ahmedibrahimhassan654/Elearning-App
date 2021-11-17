@@ -11,6 +11,8 @@ import {
   UserAddOutlined,
   SettingOutlined,
   ProfileOutlined,
+  CarryOutOutlined,
+  TeamOutlined,
 } from "@ant-design/icons";
 import { toast } from "react-toastify";
 
@@ -50,10 +52,37 @@ const TopNav = () => {
     <>
       <Menu
         //onClick={this.handleClick}
-     className='navbar'
+        className="navbar"
         selectedKeys={[current]}
         mode="horizontal"
       >
+        {user && user.role && user.role.includes("Instructor") ? (
+          <>
+            <Menu.Item
+              key="/instructor/course/create"
+              style={{ marginLeft: "200px" }}
+              onClick={(e) => setCurrent(e.key)}
+              icon={<CarryOutOutlined />}
+            >
+              <Link href="/instructor/course/create">
+                <a style={{ color: "white" }}>Create Course</a>
+              </Link>
+            </Menu.Item>
+          </>
+        ) : (
+          <>
+            <Menu.Item
+              key="/user/become-instructore"
+              style={{ marginLeft: "200px" }}
+              onClick={(e) => setCurrent(e.key)}
+              icon={<TeamOutlined />}
+            >
+              <Link href="/user/become-instructore">
+                <a style={{ color: "white" }}>Become Instructor</a>
+              </Link>
+            </Menu.Item>
+          </>
+        )}
         {user === null && (
           <>
             <Menu.Item
