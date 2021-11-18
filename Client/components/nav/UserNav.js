@@ -32,6 +32,8 @@ const UserNav = ({ collapsed }) => {
           position: "sticky",
           backgroundColor: "#D464CB",
           top: 0,
+          color: "white",
+          fontSize: "18px",
         }}
         defaultSelectedKeys={["1"]}
         mode="inline"

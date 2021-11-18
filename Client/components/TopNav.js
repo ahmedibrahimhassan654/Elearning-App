@@ -122,12 +122,12 @@ const TopNav = () => {
           <>
             <Menu.Item
               key="/"
-              style={{ marginLeft: "auto" }}
+              style={{ marginLeft: "auto", color: "white" }}
               onClick={(e) => setCurrent(e.key)}
               icon={<HomeOutlined twoToneColor="#eb2f96" />}
             >
               <Link href="/">
-                <a>App</a>
+                <a style={{ color: "white" }}>App</a>
               </Link>
             </Menu.Item>
 
