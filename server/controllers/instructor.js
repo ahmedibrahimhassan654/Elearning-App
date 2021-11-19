@@ -56,3 +56,15 @@ export const getAccountStatus = async (req, res) => {
     console.log(err);
   }
 };
+export const getCurrentInstructor = async (req, res) => {
+  try {
+    const user = await User.findById(req.user._id).select("-password").exec();
+    console.log("CURRENT_USER", user);
+    if (!user.role.includes("instructor")) {
+      return res.status(401).send("you are not instructor");
+    }
+    return res.json({ ok: true });
+  } catch (err) {
+    console.log(err);
+  }
+};
