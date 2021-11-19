@@ -56,7 +56,7 @@ const TopNav = () => {
         selectedKeys={[current]}
         mode="horizontal"
       >
-        {user && user.role && user.role.includes("Instructor") ? (
+        {user !== null && user.role && user.role.includes("Instructor") ? (
           <>
             <Menu.Item
               key="/instructor/course/create"
