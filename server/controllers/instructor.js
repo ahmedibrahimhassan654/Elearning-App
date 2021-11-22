@@ -60,10 +60,10 @@ export const getCurrentInstructor = async (req, res) => {
   try {
     const user = await User.findById(req.user._id).select("-password").exec();
     console.log("CURRENT_USER", user);
-    if (!user.role.includes("instructor")) {
-      return res.status(401).send("you are not instructor");
+    if (!user.role.includes("Instructor")) {
+      return res.sendStatus(403);
     }
-    return res.json({ ok: true });
+    res.json({ ok: true });
   } catch (err) {
     console.log(err);
   }

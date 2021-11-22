@@ -55,6 +55,7 @@ const TopNav = () => {
         className="navbar"
         selectedKeys={[current]}
         mode="horizontal"
+        style={{ color: "white" }}
       >
         {user !== null && user.role && user.role.includes("Instructor") ? (
           <>
@@ -62,7 +63,11 @@ const TopNav = () => {
               key="/instructor/course/create"
               style={{ marginLeft: "200px" }}
               onClick={(e) => setCurrent(e.key)}
-              icon={<CarryOutOutlined />}
+              icon={
+                <CarryOutOutlined
+                  style={{ color: "white", alignItems: "center" }}
+                />
+              }
             >
               <Link href="/instructor/course/create">
                 <a style={{ color: "white" }}>Create Course</a>
@@ -89,20 +94,20 @@ const TopNav = () => {
               key="/home"
               style={{ marginLeft: "1px" }}
               onClick={(e) => setCurrent(e.key)}
-              icon={<LoginOutlined />}
+              icon={<LoginOutlined style={{ color: "white" }} />}
             >
               <Link href="/home">
-                <a>Home</a>
+                <a style={{ color: "white" }}>Home</a>
               </Link>
             </Menu.Item>
             <Menu.Item
               key="/login"
               style={{ marginRight: "auto" }}
               onClick={(e) => setCurrent(e.key)}
-              icon={<LoginOutlined />}
+              icon={<LoginOutlined style={{ color: "white" }} />}
             >
               <Link href="/login">
-                <a>Login</a>
+                <a style={{ color: "white" }}>Login</a>
               </Link>
             </Menu.Item>
 
@@ -110,10 +115,10 @@ const TopNav = () => {
               key="/register"
               style={{ marginLeft: "auto" }}
               onClick={(e) => setCurrent(e.key)}
-              icon={<UserAddOutlined />}
+              icon={<UserAddOutlined style={{ color: "white" }} />}
             >
               <Link href="/register">
-                <a>register</a>
+                <a style={{ color: "white" }}>register</a>
               </Link>
             </Menu.Item>
           </>
@@ -135,7 +140,8 @@ const TopNav = () => {
               key="SubMenu"
               icon={<Avatar size="large" icon={<UserOutlined />} />}
               title={`welcome ${user.name}`}
-              className="float-right"
+              // className="float-right"
+              style={{ color: "white" }}
             >
               <Menu.ItemGroup>
                 <Menu.Item

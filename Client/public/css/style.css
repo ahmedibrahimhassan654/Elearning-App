@@ -13,7 +13,7 @@
 }
 
 .jumbotron {
-  background-color: rgba(194, 35, 181, 0.705);;
+  background-color: rgb(131, 96, 230);
   color: whitesmoke;
 }
 
@@ -22,11 +22,11 @@
 #components-layout-demo-side .logo {
   height: 32px;
   margin: 16px;
-  background: rgba(255, 255, 255, 0.945);
+  background: rgba(31, 196, 58, 0.945);
 }
 
 .site-layout .site-layout-background {
-  background: rgb(201, 20, 59);
+  background: rgb(47, 184, 202);
 }
 .logo {
   height: 110px;
@@ -37,13 +37,13 @@
   align-items: center;
 }
 .navbar {
-  color: #ffffff;
+  color: #581dc7;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
   font-size: 17px;
   overflow: hidden;
-  background-color: rgba(194, 35, 181, 0.705);
+  background-color: rgba(80, 30, 219, 0.705);
   position: sticky;
   top: 0;
   color: white;

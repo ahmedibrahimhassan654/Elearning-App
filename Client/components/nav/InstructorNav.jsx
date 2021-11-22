@@ -9,7 +9,7 @@ import {
   TeamOutlined,
   UserOutlined,
 } from "@ant-design/icons";
-const UserNav = ({ collapsed }) => {
+const InstructorNav = ({ collapsed }) => {
   return (
     <Sider
       style={{
@@ -61,4 +61,4 @@ const UserNav = ({ collapsed }) => {
   );
 };
 
-export default UserNav;
+export default InstructorNav;
