@@ -41,15 +41,7 @@ const InstructorRoute = ({ children }) => {
         <Layout style={{ minHeight: "100vh", position: "relative" }}>
           <InstructorNav collapsed={collapsed} />
           <Layout className="site-layout" style={{ marginLeft: 200 }}>
-            <Content style={{ padding: 24, textAlign: "center" }}>
-              <p className="text-primary">Instructor Dash Board</p>
-              <div
-                className="site-layout-background"
-                //  style={{ padding: 24, minHeight: 360 }}
-              >
-                <div>{children}</div>
-              </div>
-            </Content>
+            <div>{children}</div>
             <Footer style={{ textAlign: "center" }}>
               Ant Design ©2018 Created by Ant UED
             </Footer>
