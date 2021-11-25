@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { useState, useEffect } from "react";
 import { Layout, Menu } from "antd";
 const { SubMenu } = Menu;
 const { Sider } = Layout;
@@ -10,6 +11,11 @@ import {
   UserOutlined,
 } from "@ant-design/icons";
 const UserNav = ({ collapsed }) => {
+  const [current, setCurrent] = useState("");
+  useEffect(() => {
+    process.browser && setCurrent(window.location.pathname);
+  }, [process.browser && window.location.pathname]);
+
   return (
     <Sider
       style={{
@@ -35,11 +41,15 @@ const UserNav = ({ collapsed }) => {
           color: "white",
           fontSize: "18px",
         }}
-        defaultSelectedKeys={["1"]}
+        className="nav flex-column nav-pills mt-0"
         mode="inline"
       >
-        <Menu.Item key="1" icon={<PieChartOutlined />}>
-          Option 1
+        <Menu.Item icon={<DesktopOutlined />} className="mt-3">
+          <Link href="/user">
+            <a className={`nav-link ${current === "/user" && "active "} `}>
+              Dash Board
+            </a>
+          </Link>
         </Menu.Item>
         <Menu.Item key="2" icon={<DesktopOutlined />}>
           Option 2

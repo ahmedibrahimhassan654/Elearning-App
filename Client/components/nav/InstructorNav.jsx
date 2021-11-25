@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { useState, useEffect } from "react";
 import { Layout, Menu } from "antd";
 const { SubMenu } = Menu;
 const { Sider } = Layout;
@@ -10,14 +11,17 @@ import {
   UserOutlined,
 } from "@ant-design/icons";
 const InstructorNav = ({ collapsed }) => {
+  const [current, setCurrent] = useState("");
+  useEffect(() => {
+    process.browser && setCurrent(window.location.pathname);
+  }, [process.browser && window.location.pathname]);
+
   return (
     <Sider
       style={{
         overflow: "auto",
         height: "100vh",
-
         position: "sticky",
-
         top: 0,
       }}
       collapsible
@@ -35,15 +39,31 @@ const InstructorNav = ({ collapsed }) => {
           color: "white",
           fontSize: "18px",
         }}
-        defaultSelectedKeys={["1"]}
         mode="inline"
+        className="nav flex-column nav-pills mt-0"
       >
-        <Menu.Item key="1" icon={<PieChartOutlined />}>
-          Option 1
+        <Menu.Item icon={<DesktopOutlined />} className="mt-3">
+          <Link href="/instructor">
+            <a
+              className={`nav-link ${current === "/instructor" && "active "} `}
+            >
+              Dash Board
+            </a>
+          </Link>
         </Menu.Item>
-        <Menu.Item key="2" icon={<DesktopOutlined />}>
-          Option 2
+
+        <Menu.Item icon={<DesktopOutlined />}>
+          <Link href="/instructor/course/create">
+            <a
+              className={`nav-link ${
+                current === "/instructor/course/create" && "active"
+              } `}
+            >
+              Create Course
+            </a>
+          </Link>
         </Menu.Item>
+
         <SubMenu key="sub1" icon={<UserOutlined />} title="User">
           <Menu.Item key="3">Tom</Menu.Item>
           <Menu.Item key="4">Bill</Menu.Item>

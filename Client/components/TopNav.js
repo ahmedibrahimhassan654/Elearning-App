@@ -52,7 +52,7 @@ const TopNav = () => {
     <>
       <Menu
         //onClick={this.handleClick}
-        className="navbar"
+        className="navbar "
         selectedKeys={[current]}
         mode="horizontal"
         style={{ color: "white" }}
@@ -87,6 +87,23 @@ const TopNav = () => {
               </Link>
             </Menu.Item>
           </>
+        )}
+        {user !== null && user.role && user.role.includes("Instructor") && (
+          <Menu.Item
+            key="/instructor"
+            // style={{ marginLeft: "200px" }}
+            onClick={(e) => setCurrent(e.key)}
+            icon={
+              <CarryOutOutlined
+                style={{ color: "white", alignItems: "center" }}
+              />
+            }
+            className="float-left"
+          >
+            <Link href="/instructor">
+              <a style={{ color: "white" }}>Instructor DashBoard</a>
+            </Link>
+          </Menu.Item>
         )}
         {user === null && (
           <>

@@ -25,9 +25,9 @@
   background: rgba(31, 196, 58, 0.945);
 }
 
-.site-layout .site-layout-background {
-  background: rgb(47, 184, 202);
-}
+/* .site-layout .site-layout-background {
+  background: white;
+} */
 .logo {
   height: 110px;
   width: 100%;
@@ -37,7 +37,6 @@
   align-items: center;
 }
 .navbar {
-  color: #581dc7;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
