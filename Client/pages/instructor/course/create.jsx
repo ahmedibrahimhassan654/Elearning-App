@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import InstructorRoute from "../../../components/routes/InstructorRoute";
-import "arch-editor/dist/arch-editor.css";
-import { ArchEditor, BlockToolbar, ArchEditorProvider } from "arch-editor";
+
 import { Button, Select } from "antd";
 import { SaveOutlined } from "@ant-design/icons";
 
@@ -15,6 +14,8 @@ const CourseCreate = () => {
     paid: true,
     category: "",
     loading: false,
+    imagePreview: "",
+    FilePreview: "",
   });
 
   const handleChange = (e) => {
@@ -43,7 +44,7 @@ const CourseCreate = () => {
                 aria-describedby="nameHelp"
                 placeholder="course name"
                 value={values.name}
-                onChange={handleSubmit}
+                onChange={handleChange}
               />
               <div id="emailHelp" className="form-text text-center">
                 Make it perfect.
@@ -55,18 +56,16 @@ const CourseCreate = () => {
                 Description
               </label>
               <div className="mt-3 border">
-                <ArchEditorProvider>
-                  <BlockToolbar />
-                  <ArchEditor
-                    placeholder="Please enter course description."
-                    showInlineToolbar
-                    row={5}
-                    col={15}
-                    name="description"
-                    value={values.description}
-                    onChange={handleChange}
-                  />
-                </ArchEditorProvider>
+                <textarea
+                  name="description"
+                  value={values.description}
+                  onChange={handleChange}
+                  className="form-control pt-4 markdown-textarea"
+                  placeholder="Description"
+                  cols="7"
+                  rows="7"
+                  required
+                ></textarea>
               </div>
             </div>
             <div className="form-row ">
@@ -87,6 +86,24 @@ const CourseCreate = () => {
                     <Option value={true}>Paid</Option>
                     <Option value={false}>Free</Option>
                   </Select>
+                </div>
+              </div>
+            </div>
+            <div className="form-row ">
+              <div className="col">
+                <div className="form-group">
+                  <label for="exampleInputdeasription" className="form-label">
+                    Category
+                  </label>
+                  <input
+                    type="text"
+                    name="category"
+                    className="form-control"
+                    aria-describedby="nameHelp"
+                    placeholder="category"
+                    value={values.category}
+                    onChange={handleChange}
+                  />
                 </div>
               </div>
             </div>
@@ -146,6 +163,7 @@ const CourseCreate = () => {
     <InstructorRoute>
       <h1 className="jumbotron text-center square mt-3">Create course</h1>
       <div className="pt-3 pb-3 mr-5">{courseCreateForm()}</div>
+      <pre>{JSON.stringify(values, null, 4)}</pre>
     </InstructorRoute>
   );
 };
