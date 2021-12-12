@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Button, Select } from "antd";
+import { Button, Select, Avatar } from "antd";
 import { SaveOutlined } from "@ant-design/icons";
 const { Option } = Select;
 const CourseCreateForm = ({
@@ -8,6 +8,7 @@ const CourseCreateForm = ({
   handleImage,
   values,
   setvalues,
+  preview,
 }) => {
   const children = [];
   for (let i = 9.99; i <= 100.99; i++) {
@@ -116,6 +117,7 @@ const CourseCreateForm = ({
                   </label>
                 </div>
               </div>
+              {preview && <Avatar size={64} src={preview} />}
             </div>
 
             <div class="container my-3">

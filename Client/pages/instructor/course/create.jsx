@@ -12,10 +12,8 @@ const CourseCreate = () => {
     paid: true,
     category: "",
     loading: false,
-    imagePreview: "",
-
   });
-
+  const [preview, setPreview] = useState("");
   const handleChange = (e) => {
     setvalues({ ...values, [e.target.name]: e.target.value });
   };
@@ -24,7 +22,9 @@ const CourseCreate = () => {
     e.preventDefault();
     console.log(values);
   };
-  const handleImage = (e) => {};
+  const handleImage = (e) => {
+    setPreview(window.URL.createObjectURL(e.target.files[0]));
+  };
 
   return (
     <InstructorRoute>
@@ -36,6 +36,7 @@ const CourseCreate = () => {
           handleImage={handleImage}
           values={values}
           setvalues={setvalues}
+          preview={preview}
         />
       </div>
       <pre>{JSON.stringify(values, null, 4)}</pre>
