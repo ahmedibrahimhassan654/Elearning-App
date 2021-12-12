@@ -9,6 +9,10 @@ const CourseCreateForm = ({
   values,
   setvalues,
 }) => {
+  const children = [];
+  for (let i = 9.99; i <= 100.99; i++) {
+    children.push(<option key={i.toFixed(2)}> $ {i.toFixed(2)}</option>);
+  }
   return (
     <>
       <div className="mx-auto " style={{ width: "100%" }}>
@@ -52,11 +56,7 @@ const CourseCreateForm = ({
             <div className="form-row ">
               <div className="col">
                 <div className="form-group">
-                  <label for="exampleInputdeasription" className="form-label">
-                    paid course or not
-                  </label>
                   <Select
-                    // defaultValue="paid"
                     style={{ width: "100%" }}
                     size="large"
                     value={values.paid}
@@ -69,6 +69,19 @@ const CourseCreateForm = ({
                   </Select>
                 </div>
               </div>
+              {values.paid && (
+                <div className="form-group">
+                  <Select
+                    defaultValue="9.99"
+                    style={{ width: "100%" }}
+                    onChange={(v) => setvalues({ ...values, price: v })}
+                    tokenSeparators={[,]}
+                    size="large"
+                  >
+                    {children}
+                  </Select>
+                </div>
+              )}
             </div>
             <div className="form-row ">
               <div className="col">

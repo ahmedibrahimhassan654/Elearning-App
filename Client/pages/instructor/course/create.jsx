@@ -1,9 +1,7 @@
 import { useEffect, useState } from "react";
 import InstructorRoute from "../../../components/routes/InstructorRoute";
 
-
 import CourseCreateForm from "../../../components/forms/CourseCreateForm";
-
 
 const CourseCreate = () => {
   const [values, setvalues] = useState({
@@ -15,7 +13,7 @@ const CourseCreate = () => {
     category: "",
     loading: false,
     imagePreview: "",
-    FilePreview: "",
+
   });
 
   const handleChange = (e) => {
@@ -37,7 +35,7 @@ const CourseCreate = () => {
           handleChange={handleChange}
           handleImage={handleImage}
           values={values}
-          setvalues={handleImage}
+          setvalues={setvalues}
         />
       </div>
       <pre>{JSON.stringify(values, null, 4)}</pre>
