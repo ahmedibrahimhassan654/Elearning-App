@@ -22,16 +22,44 @@ const InstructorNav = ({ collapsed }) => {
         overflow: "auto",
         height: "100vh",
         position: "sticky",
+        width: "800px",
         top: 0,
       }}
       collapsible
       isCollapsed={collapsed}
       onToggle={(isCollapsed) => setcollapsed(isCollapsed)}
     >
+      <div
+        className="logo"
+        style={{
+          backgroundColor: "#8360E6",
+
+          color: "black",
+          fontSize: "18px",
+          border: "1px solid white",
+        }}
+      >
+        <Link href="/instructor">
+          <a className={`nav-link ${current === "/instructor" && "active "} `}>
+            <span
+              style={{
+                backgroundColor: "#8360E6",
+
+                color: "white",
+                fontSize: "18px",
+              }}
+            >
+              {" "}
+              Instructor DashBoard
+            </span>
+          </a>
+        </Link>
+      </div>
       <Menu
         style={{
           overflow: "auto",
           height: "100vh",
+          width: "400px",
           position: "fixed",
           position: "sticky",
           backgroundColor: "#8360E6",
@@ -42,16 +70,6 @@ const InstructorNav = ({ collapsed }) => {
         mode="inline"
         className="nav flex-column nav-pills mt-0"
       >
-        <Menu.Item icon={<DesktopOutlined />} className="mt-3">
-          <Link href="/instructor">
-            <a
-              className={`nav-link ${current === "/instructor" && "active "} `}
-            >
-              Dash Board
-            </a>
-          </Link>
-        </Menu.Item>
-
         <Menu.Item icon={<DesktopOutlined />}>
           <Link href="/instructor/course/create">
             <a

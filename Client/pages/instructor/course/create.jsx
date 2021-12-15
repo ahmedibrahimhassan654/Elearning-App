@@ -35,6 +35,7 @@ const CourseCreate = () => {
         let { data } = await axios.post("/api/course/uploade-image", {
           image: uri,
         });
+
         console.log("image uploaded", data);
         toast("image uploded succesfuly ");
         setvalues({ ...values, loading: false });
