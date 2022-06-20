@@ -12,7 +12,7 @@ const app = express();
 
 // db
 mongoose
-  .connect(process.env.DATABASE, {
+  .connect(process.env.DATABASELOCAL, {
     useUnifiedTopology: true,
   })
   .then(() => console.log("**DB CONNECTED**"))
