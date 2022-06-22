@@ -66,11 +66,19 @@ const InstructorNav = ({ collapsed }) => {
           top: 0,
           color: "white",
           fontSize: "18px",
+          border: "1px solid white",
+          padding: "10px",
         }}
         mode="inline"
         className="nav flex-column nav-pills mt-0"
       >
-        <Menu.Item icon={<DesktopOutlined />}>
+        <Menu.Item
+          icon={<DesktopOutlined />}
+          style={{
+            marginInline: "0px",
+          }}
+          title="User"
+        >
           <Link href="/instructor/course/create">
             <a
               className={`nav-link ${

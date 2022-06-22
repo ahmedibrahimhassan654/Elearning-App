@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
-import { Button, Select, Avatar } from "antd";
+import { Button, Select, Avatar, Badge } from "antd";
 import { SaveOutlined } from "@ant-design/icons";
 const { Option } = Select;
 const CourseCreateForm = ({
   handleSubmit,
   handleChange,
   handleImage,
+  handleImageRemove,
   values,
   setvalues,
   preview,
@@ -15,6 +16,7 @@ const CourseCreateForm = ({
   for (let i = 9.99; i <= 100.99; i++) {
     children.push(<option key={i.toFixed(2)}> $ {i.toFixed(2)}</option>);
   }
+
   return (
     <>
       <div className="mx-auto " style={{ width: "100%" }}>
@@ -118,7 +120,15 @@ const CourseCreateForm = ({
                   </label>
                 </div>
               </div>
-              {preview && <Avatar size={64} src={preview} />}
+              {preview && (
+                <Badge
+                  count="x"
+                  onClick={handleImageRemove}
+                  className="pointer"
+                >
+                  <Avatar size={64} src={preview} />
+                </Badge>
+              )}
             </div>
 
             <div class="container my-3">

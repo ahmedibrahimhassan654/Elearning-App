@@ -14,7 +14,7 @@ const CourseCreate = () => {
     category: "",
     loading: false,
   });
-  const [image, setImage] = useState("");
+  const [image, setImage] = useState({});
   const [preview, setPreview] = useState("");
   const [uploadButtonText, setUploadButtonText] = useState("Upload Image");
   const handleChange = (e) => {
@@ -38,6 +38,7 @@ const CourseCreate = () => {
 
         console.log("image uploaded", data);
         toast("image uploded succesfuly ");
+        setImage(data);
         setvalues({ ...values, loading: false });
       } catch (err) {
         console.log(err);
@@ -45,6 +46,22 @@ const CourseCreate = () => {
         toast("upload image failed,please try again ");
       }
     });
+  };
+  const handleImageRemove = async () => {
+    try {
+      // console.log(values);
+      setvalues({ ...values, loading: true });
+      const res = await axios.post("/api/course/remove-image", { image });
+      setImage({});
+      setPreview("");
+      setUploadButtonText("Upload Image");
+      setvalues({ ...values, loading: false });
+      toast("Image deleted succefuly");
+    } catch (err) {
+      console.log(err);
+      setvalues({ ...values, loading: false });
+      toast("Image deleted failed. Try later.");
+    }
   };
 
   return (
@@ -55,6 +72,7 @@ const CourseCreate = () => {
           handleSubmit={handleSubmit}
           handleChange={handleChange}
           handleImage={handleImage}
+          handleImageRemove={handleImageRemove}
           values={values}
           setvalues={setvalues}
           preview={preview}
@@ -62,6 +80,8 @@ const CourseCreate = () => {
         />
       </div>
       <pre>{JSON.stringify(values, null, 4)}</pre>
+      <hr />
+      <pre>{JSON.stringify(image, null, 4)}</pre>
     </InstructorRoute>
   );
 };
