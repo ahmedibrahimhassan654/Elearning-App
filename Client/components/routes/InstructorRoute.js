@@ -41,7 +41,7 @@ const InstructorRoute = ({ children }) => {
         <Layout style={{ minHeight: "100vh", position: "relative" }}>
           <InstructorNav collapsed={collapsed} />
           <Layout className="site-layout" style={{ marginLeft: 100 }}>
-            <div>{children}</div>
+            <div >{children}</div>
             <Footer style={{ textAlign: "center" }}>
               Ant Design ©2018 Created by Ant UED
             </Footer>
