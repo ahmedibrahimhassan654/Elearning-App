@@ -28,7 +28,7 @@ const CourseCreate = () => {
     try {
       const { data } = await axios.post("/api/course", { ...values, image });
       console.log(data);
-      toast.success("Course Created Successfully");
+      toast.success("Course Created Successfully  now you can add lessons");
       router.push("/instructor");
     } catch (err) {
       toast(err.response.data);

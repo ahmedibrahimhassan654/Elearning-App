@@ -27,8 +27,14 @@ const register = () => {
         email,
         password,
       });
-      toast(`user with email ${email} is registered, please login `);
+      toast(
+        `user with email ${email} is registered successful , please login `
+      );
+      setName("");
+      setEmail("");
+      setPassword("");
       setLoading(false);
+      router.push("/login");
     } catch (err) {
       toast(err.response.data);
       setLoading(false);
