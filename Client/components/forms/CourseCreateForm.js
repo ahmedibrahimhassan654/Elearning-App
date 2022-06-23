@@ -34,6 +34,7 @@ const CourseCreateForm = ({
                 placeholder="course name"
                 value={values.name}
                 onChange={handleChange}
+                dir="auto" // auto direction
               />
               <div id="emailHelp" className="form-text text-center">
                 Make it perfect.
@@ -54,6 +55,7 @@ const CourseCreateForm = ({
                   cols="7"
                   rows="7"
                   required
+                  dir="auto" // auto direction
                 ></textarea>
               </div>
             </div>
@@ -101,6 +103,7 @@ const CourseCreateForm = ({
                     placeholder="category"
                     value={values.category}
                     onChange={handleChange}
+                    dir="auto" // auto direction
                   />
                 </div>
               </div>
