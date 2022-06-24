@@ -1,5 +1,9 @@
 import React from "react";
 
+export const config = {
+  unstable_runtimeJS: false,
+};
+
 const index = () => {
   return (
     <>
